@@ -1,0 +1,31 @@
+{
+  "name": "stdyassam",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.0",
+    "aws-sdk": "^2.1566.0",
+    "next": "14.1.0",
+    "next-auth": "^4.24.6",
+    "nodemailer": "^6.9.10",
+    "pdf-lib": "^1.17.1",
+    "razorpay": "^2.9.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.344.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.10.0",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.57",
+    "tailwindcss": "^3.4.1"
+  }
+}
