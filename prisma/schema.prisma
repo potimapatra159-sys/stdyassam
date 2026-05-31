@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String  @id @default(cuid())
+  email String  @unique
+  role  String  @default("STUDENT") // STUDENT or ADMIN
+  orders Order[]
+}
+
+model Product {
+  id          String @id @default(cuid())
+  title       String
+  subject     String
+  price       Float
+  format      String // PDF or EPUB
+  s3Key       String // Path in Private S3 Bucket
+  orders      Order[]
+}
+
+model Order {
+  id            String   @id @default(cuid())
+  userId        String
+  productId     String
+  status        String   @default("PENDING") // PENDING, SUCCESS
+  downloadCount Int      @default(0)
+  expiresAt     DateTime?
+  user          User     @relation(fields: [userId], references: [id])
+  product       Product  @relation(fields: [productId], references: [id])
+}
